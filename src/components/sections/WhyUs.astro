@@ -1,0 +1,56 @@
+---
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+
+const stats = [
+  { value: '20+', label: 'Years .NET Experience' },
+  { value: '100%', label: 'Security-First Delivery' },
+  { value: 'Zero', label: 'Vendor Lock-in' },
+];
+
+const differentiators = [
+  {
+    title: 'We speak government',
+    body: 'We understand procurement cycles, COR relationships, CPARS ratings, and the CDRLs that matter to contracting officers. No learning curve, no surprises — just delivery.',
+  },
+  {
+    title: 'Security-first by default',
+    body: 'Every engagement starts with a threat model, not a checkbox. We build DevSecOps pipelines that catch vulnerabilities before they reach production and generate the artifacts auditors expect.',
+  },
+  {
+    title: 'Full ownership handoff',
+    body: 'We build to open standards and hand off complete documentation, source code, and runbooks. Your team owns the result — no proprietary dependencies, no consulting treadmill.',
+  },
+];
+---
+
+<section id="why-us" class="bg-white section-padding" aria-labelledby="why-us-heading">
+  <div class="container-max">
+    <SectionHeader
+      eyebrow="Why GovModern"
+      title="Built for Government. Delivered on Time."
+      subtitle="We bring private-sector engineering rigor to the constraints and requirements of government contracting."
+      id="why-us-heading"
+    />
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 p-8 bg-gov-navy rounded-2xl">
+      {stats.map((stat) => (
+        <div class="text-center">
+          <p class="text-5xl font-bold text-gov-gold mb-2">{stat.value}</p>
+          <p class="text-white/70 text-sm uppercase tracking-wide">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Differentiators -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {differentiators.map((item) => (
+        <div>
+          <div class="w-10 h-1 bg-gov-gold rounded mb-4" aria-hidden="true"></div>
+          <h3 class="text-gov-navy font-semibold text-xl mb-3">{item.title}</h3>
+          <p class="text-gov-slate leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+{
+  "name": "govmodern-api",
+  "version": "1.0.0",
+  "description": "Azure Functions API for GovModern contact form",
+  "main": "dist/src/functions/contact.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.0",
+    "@sendgrid/mail": "^8.1.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

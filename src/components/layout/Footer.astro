@@ -1,0 +1,62 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-gov-navy text-white">
+  <div class="container-max section-padding">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 bg-gov-gold rounded flex items-center justify-center">
+            <span class="text-white font-bold text-sm">GM</span>
+          </div>
+          <span class="font-semibold text-lg">GovModern</span>
+        </div>
+        <p class="text-white/70 text-sm leading-relaxed">
+          .NET modernization for federal and state government agencies. We deliver mission-ready software on schedule and within budget.
+        </p>
+        <p class="text-gov-gold text-sm mt-4 italic">Proud to serve those who serve.</p>
+      </div>
+
+      <!-- Nav links -->
+      <div>
+        <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h3>
+        <ul class="space-y-2">
+          {[
+            { href: '/', label: 'Home' },
+            { href: '/services', label: 'Services' },
+            { href: '/contact', label: 'Contact' },
+            { href: '/privacy', label: 'Privacy Policy' },
+          ].map(({ href, label }) => (
+            <li>
+              <a href={href} class="text-white/70 hover:text-white text-sm transition-colors">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h3>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li>
+            <a href="mailto:contact@govmodern.com" class="hover:text-white transition-colors">
+              contact@govmodern.com
+            </a>
+          </li>
+          <li class="text-white/50 text-xs mt-4">
+            Section 508 Accessible &bull; WCAG 2.1 AA
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/50">
+      <p>&copy; {year} GovModern LLC. All rights reserved.</p>
+      <p>GSA Schedule Eligible &bull; FISMA &bull; FedRAMP</p>
+    </div>
+  </div>
+</footer>

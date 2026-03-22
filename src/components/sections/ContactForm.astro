@@ -1,0 +1,160 @@
+---
+import Button from '@/components/ui/Button.astro';
+---
+
+<section id="contact" class="bg-gov-light section-padding" aria-labelledby="contact-section-heading">
+  <div class="container-max">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="text-gov-blue text-sm font-semibold uppercase tracking-widest mb-3">Get In Touch</p>
+        <h2 id="contact-section-heading" class="text-3xl sm:text-4xl font-bold text-gov-navy mb-4">
+          Ready to Modernize Your Systems?
+        </h2>
+        <p class="text-gov-slate">
+          Tell us about your agency and the challenge you're facing. We'll respond within one business day.
+        </p>
+      </div>
+
+      <form
+        id="contact-form"
+        class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 space-y-6"
+        novalidate
+      >
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gov-navy mb-1">
+              Full Name <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gov-slate text-sm focus:outline-none focus:ring-2 focus:ring-gov-blue focus:border-transparent transition-shadow"
+              placeholder="Jane Smith"
+            />
+          </div>
+
+          <div>
+            <label for="agency" class="block text-sm font-medium text-gov-navy mb-1">
+              Agency / Organization <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="agency"
+              name="agency"
+              required
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gov-slate text-sm focus:outline-none focus:ring-2 focus:ring-gov-blue focus:border-transparent transition-shadow"
+              placeholder="Dept. of Commerce"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gov-navy mb-1">
+              Work Email <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gov-slate text-sm focus:outline-none focus:ring-2 focus:ring-gov-blue focus:border-transparent transition-shadow"
+              placeholder="jane@agency.gov"
+            />
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gov-navy mb-1">
+              Phone <span class="text-gov-slate/60 font-normal">(optional)</span>
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              autocomplete="tel"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gov-slate text-sm focus:outline-none focus:ring-2 focus:ring-gov-blue focus:border-transparent transition-shadow"
+              placeholder="(202) 555-0100"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-gov-navy mb-1">
+            What are you trying to modernize? <span class="text-red-500" aria-hidden="true">*</span>
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="4"
+            class="w-full border border-gray-200 rounded-lg px-4 py-3 text-gov-slate text-sm focus:outline-none focus:ring-2 focus:ring-gov-blue focus:border-transparent transition-shadow resize-none"
+            placeholder="Brief description of your system, current stack, and goals..."
+          ></textarea>
+        </div>
+
+        <!-- Status messages -->
+        <div id="form-status" role="status" aria-live="polite" class="hidden">
+          <div id="form-success" class="hidden text-green-700 bg-green-50 border border-green-200 rounded-lg p-4 text-sm">
+            Thank you! We'll be in touch within one business day.
+          </div>
+          <div id="form-error" class="hidden text-red-700 bg-red-50 border border-red-200 rounded-lg p-4 text-sm">
+            Something went wrong. Please email us directly at <a href="mailto:contact@govmodern.com" class="underline">contact@govmodern.com</a>.
+          </div>
+        </div>
+
+        <Button type="submit" variant="primary" size="lg" class="w-full justify-center">
+          Send Message →
+        </Button>
+
+        <p class="text-xs text-gov-slate/60 text-center">
+          We respect your privacy. Your information is never shared or sold.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const statusDiv = document.getElementById('form-status')!;
+  const successDiv = document.getElementById('form-success')!;
+  const errorDiv = document.getElementById('form-error')!;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      statusDiv.classList.remove('hidden');
+
+      if (res.ok) {
+        successDiv.classList.remove('hidden');
+        errorDiv.classList.add('hidden');
+        form.reset();
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      statusDiv.classList.remove('hidden');
+      errorDiv.classList.remove('hidden');
+      successDiv.classList.add('hidden');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message →';
+    }
+  });
+</script>

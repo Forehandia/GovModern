@@ -1,0 +1,73 @@
+---
+import Base from '@/layouts/Base.astro';
+import Button from '@/components/ui/Button.astro';
+import { services } from '@/data/services';
+---
+
+<Base
+  title="Services — GovModern"
+  description="Full-spectrum .NET modernization services for government agencies: cloud migration, DevSecOps, compliance, API modernization, and agile delivery."
+>
+  <!-- Page header -->
+  <section class="bg-gov-navy section-padding pb-16" aria-labelledby="services-page-heading">
+    <div class="container-max">
+      <p class="text-gov-gold text-sm font-semibold uppercase tracking-widest mb-3">Our Services</p>
+      <h1 id="services-page-heading" class="text-4xl sm:text-5xl font-bold text-white mb-6">
+        End-to-End Modernization
+      </h1>
+      <p class="text-white/70 text-lg max-w-2xl leading-relaxed">
+        We deliver every phase of the .NET modernization lifecycle — from legacy assessment through cloud-native operation, with continuous compliance built in.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services detail -->
+  <section class="bg-gov-light section-padding">
+    <div class="container-max">
+      <div class="space-y-16">
+        {services.map((service, i) => (
+          <div
+            id={service.id}
+            class:list={[
+              'grid grid-cols-1 lg:grid-cols-2 gap-12 items-start',
+              i % 2 !== 0 && 'lg:flex-row-reverse',
+            ]}
+          >
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-gov-navy mb-4">{service.title}</h2>
+              <p class="text-gov-slate leading-relaxed mb-6">{service.description}</p>
+              <ul class="space-y-3">
+                {service.details.map((detail) => (
+                  <li class="flex items-start gap-3 text-gov-slate text-sm">
+                    <svg class="w-5 h-5 text-gov-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="bg-gov-navy rounded-2xl p-8 flex items-center justify-center min-h-48">
+              <p class="text-gov-gold text-6xl font-bold opacity-20">0{i + 1}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gov-blue section-padding" aria-labelledby="services-cta-heading">
+    <div class="container-max text-center">
+      <h2 id="services-cta-heading" class="text-3xl font-bold text-white mb-4">
+        Ready to get started?
+      </h2>
+      <p class="text-white/75 mb-8 max-w-xl mx-auto">
+        Schedule a no-obligation discovery call to discuss your agency's modernization needs.
+      </p>
+      <Button href="/contact" variant="outline" size="lg">
+        Schedule a Discovery Call →
+      </Button>
+    </div>
+  </section>
+</Base>

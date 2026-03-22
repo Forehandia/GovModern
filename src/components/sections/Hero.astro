@@ -1,0 +1,69 @@
+---
+import Button from '@/components/ui/Button.astro';
+
+const trustSignals = [
+  'FISMA Compliant Delivery',
+  'FedRAMP-Ready Architecture',
+  'GSA Schedule Eligible',
+  'Cleared Personnel Available',
+];
+---
+
+<section class="relative bg-gov-navy overflow-hidden" aria-labelledby="hero-heading">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 opacity-5" aria-hidden="true">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+    </svg>
+  </div>
+
+  <div class="relative container-max section-padding py-28 lg:py-36">
+    <div class="max-w-4xl">
+      <!-- Eyebrow -->
+      <p class="text-gov-gold text-sm font-semibold uppercase tracking-widest mb-6">
+        Government IT Modernization
+      </p>
+
+      <!-- Headline -->
+      <h1 id="hero-heading" class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+        Modernizing Government Systems.
+        <span class="text-gov-gold">Delivering Mission-Ready Software.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-xl text-white/75 leading-relaxed mb-10 max-w-2xl">
+        GovModern helps federal and state agencies retire legacy .NET systems, migrate to Azure Government Cloud, and achieve compliance — on schedule and within budget.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4">
+        <Button href="/contact" variant="primary" size="lg">
+          Schedule a Discovery Call →
+        </Button>
+        <Button href="#services" variant="outline" size="lg">
+          Our Services
+        </Button>
+      </div>
+    </div>
+
+    <!-- Trust signals -->
+    <div class="mt-16 pt-8 border-t border-white/10">
+      <p class="text-white/50 text-xs uppercase tracking-wider mb-4">Compliance & Contract Experience</p>
+      <div class="flex flex-wrap gap-6">
+        {trustSignals.map((signal) => (
+          <div class="flex items-center gap-2 text-white/70 text-sm">
+            <svg class="w-4 h-4 text-gov-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            {signal}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
