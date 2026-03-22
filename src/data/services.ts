@@ -63,21 +63,7 @@ export const services: Service[] = [
     ],
     icon: 'shield',
   },
-  {
-    id: 'compliance-ato',
-    title: 'Compliance & ATO Support',
-    description:
-      'Expert guidance through FISMA High/Moderate and FedRAMP authorization, including NIST 800-53 control mapping and SSP documentation.',
-    details: [
-      'FISMA High and Moderate impact level support',
-      'FedRAMP authorization readiness assessment',
-      'NIST 800-53 control mapping and documentation',
-      'System Security Plan (SSP) authoring',
-      'Continuous monitoring strategy and implementation',
-    ],
-    icon: 'check-badge',
-  },
-  {
+{
     id: 'agile-delivery',
     title: 'Agile Delivery & Program Management',
     description:
