@@ -11,7 +11,7 @@ export const services: Service[] = [
     id: 'dotnet-modernization',
     title: 'Legacy .NET Modernization',
     description:
-      'Migrate from .NET Framework 2.x–4.8 to .NET 8/9 using proven strangler fig patterns — zero downtime, parallel-run validation.',
+      'Migrate from .NET Framework 2.x–4.8 to .NET 8, 9, or 10 using proven strangler fig patterns — zero downtime, parallel-run validation.',
     details: [
       'Assessment of existing .NET Framework codebase',
       'Incremental migration with parallel-run validation',
@@ -25,12 +25,12 @@ export const services: Service[] = [
     id: 'cloud-migration',
     title: 'Cloud Migration & Architecture',
     description:
-      'Move to Azure Government Cloud or AWS GovCloud with IaC-driven, ATO-ready deployment pipelines built for federal compliance.',
+      'Move to Azure or AWS with IaC-driven, compliance-ready deployment pipelines built for state and local government needs.',
     details: [
       'Cloud readiness assessment and cost modeling',
       'Infrastructure as Code with Bicep and Terraform',
-      'Azure Government Cloud and AWS GovCloud expertise',
-      'ATO-ready architecture with compliance guardrails',
+      'Azure and AWS expertise for government workloads',
+      'Compliance-ready architecture with security guardrails',
       'Zero-trust network design and segmentation',
     ],
     icon: 'cloud',
@@ -53,7 +53,7 @@ export const services: Service[] = [
     id: 'devsecops',
     title: 'DevSecOps & CI/CD Pipelines',
     description:
-      'Embed security into every commit with automated SAST/DAST scanning, SBOM generation, and container hardening for FedRAMP-ready pipelines.',
+      'Embed security into every commit with automated SAST/DAST scanning, SBOM generation, and container hardening for compliance-ready pipelines.',
     details: [
       'GitHub Actions and Azure DevOps pipeline setup',
       'Automated SAST (static analysis) and DAST scanning',
@@ -63,17 +63,17 @@ export const services: Service[] = [
     ],
     icon: 'shield',
   },
-{
+  {
     id: 'agile-delivery',
-    title: 'Agile Delivery & Program Management',
+    title: 'Flexible Delivery & Project Management',
     description:
-      'SAFe Agile and Scrum delivery with CPARS-ready artifacts, stakeholder reporting, and transparent sprint ceremonies built for government oversight.',
+      'Iterative, sprint-based delivery that adapts to your agency\'s pace — transparent progress, clear milestones, and no bureaucratic overhead.',
     details: [
-      'SAFe Agile and Scrum framework implementation',
-      'Government-standard sprint reporting and CDRLs',
-      'CPARS-ready performance documentation',
-      'COR relationship management and status briefings',
-      'Risk management and milestone tracking',
+      'Sprint-based delivery with visible, measurable progress',
+      'Flexible engagement model fit to your timeline and budget',
+      'Clear status reporting and stakeholder communication',
+      'Rapid response to changing priorities or scope',
+      'Lightweight project management that stays out of your way',
     ],
     icon: 'chart',
   },
