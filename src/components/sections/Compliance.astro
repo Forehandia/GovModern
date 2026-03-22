@@ -1,0 +1,33 @@
+---
+const badges = [
+  'NIST 800-53',
+  'FedRAMP Ready',
+  'FISMA Moderate/High',
+  'Section 508',
+  'GSA MAS Schedule',
+  'DISA STIG',
+];
+---
+
+<section id="compliance" class="bg-gov-navy section-padding" aria-labelledby="compliance-heading">
+  <div class="container-max text-center">
+    <p class="text-gov-gold text-xs font-semibold uppercase tracking-widest mb-3">
+      Compliance Framework Experience
+    </p>
+    <h2 id="compliance-heading" class="text-2xl font-bold text-white mb-10">
+      Built to Meet the Standards That Matter
+    </h2>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      {badges.map((badge) => (
+        <div class="border border-gov-gold/30 text-white/80 text-sm font-medium px-6 py-3 rounded-full hover:border-gov-gold hover:text-white transition-colors">
+          {badge}
+        </div>
+      ))}
+    </div>
+
+    <p class="text-white/50 text-xs mt-8 max-w-xl mx-auto">
+      These designations reflect our team's compliance framework expertise and delivery experience. Specific certifications vary by engagement.
+    </p>
+  </div>
+</section>

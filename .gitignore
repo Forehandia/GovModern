@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+api/node_modules/
+api/dist/
+
+# Build output
+dist/
+.astro/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Azure Functions local settings
+api/local.settings.json

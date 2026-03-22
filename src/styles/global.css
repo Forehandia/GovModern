@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Inter font — download font file to public/fonts/inter-variable.woff2 for self-hosting
+   Until then, the stack falls back gracefully to system UI fonts */
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/inter-variable.woff2') format('woff2-variations');
+    font-named-instance: 'Regular';
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gov-slate antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gov-navy font-semibold;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+}
